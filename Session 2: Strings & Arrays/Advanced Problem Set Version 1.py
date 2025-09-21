@@ -138,9 +138,11 @@ def merge_intervals(intervals):
   input: 2d array
   output: non-overlapping 2d array
 
+  sort by start
   end >= start: overlapping
   overlapping [start, end], start -> min(start), end -> max(end)
   """
+  intervals.sort(key = lambda x: x[0])
   res = []
   res.append(intervals[0])
 
