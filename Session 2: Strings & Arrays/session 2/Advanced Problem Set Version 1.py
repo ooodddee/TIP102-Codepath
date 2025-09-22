@@ -11,7 +11,15 @@ def transpose(matrix):
   (1,0) (1,1) (1,2)  --->    (0,1) (1,1) (2,1)
   (2,0) (2,1) (2,2)          (0,2) (1,2) (2,2)
 
+  ！！！
+  need to check if not len(matrix[0])
+  matrix2 = [[], []] ==> rows = 2, cols = 0
+  ！！！
+
   '''
+  if not matrix or not matrix[0]:
+    return []
+  
   rows, cols = len(matrix), len(matrix[0])
   res = [[0] * rows for _ in range(cols)]
 
@@ -142,6 +150,9 @@ def merge_intervals(intervals):
   end >= start: overlapping
   overlapping [start, end], start -> min(start), end -> max(end)
   """
+  if not intervals:
+    return []
+  
   intervals.sort(key = lambda x: x[0])
   res = []
   res.append(intervals[0])
